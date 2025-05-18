@@ -20,9 +20,6 @@ export default function OtpVerify({ setIsAuthed }) {
   const handleVerify = async () => {
     try {
       const { accessToken, rememberToken } = (await api.post('/auth/verify-otp', { email, otp })).data;
-
-      
-
       toast.success('✅ OTP Verified, logging in…');
       localStorage.setItem('accessToken', accessToken);
        localStorage.setItem('rememberToken', rememberToken);
